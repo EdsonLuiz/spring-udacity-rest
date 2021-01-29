@@ -8,6 +8,7 @@ import com.edson.dogrest.service.DogService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -29,5 +30,11 @@ public class DogController {
     public ResponseEntity<List<String>> getDogBreeds() {
         var list = dogService.retrieveDogBreed();
         return new ResponseEntity<List<String>>(list, HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}/breed")
+    public ResponseEntity<String> getBreedByID(@PathVariable Long id) {
+        var breed = dogService.retrieveDogBreedById(id);
+        return new ResponseEntity<String>(breed, HttpStatus.OK);
     }
 }

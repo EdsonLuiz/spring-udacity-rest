@@ -8,4 +8,6 @@ public interface DogService {
     List<Dog> retrieveDogs();
 
 	List<String> retrieveDogBreed();
+
+	String retrieveDogBreedById(Long id);
 }
