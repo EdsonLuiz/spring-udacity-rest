@@ -37,4 +37,10 @@ public class DogController {
         var breed = dogService.retrieveDogBreedById(id);
         return new ResponseEntity<String>(breed, HttpStatus.OK);
     }
+
+    @GetMapping("/dogs/name")
+    public ResponseEntity<List<String>> getDogNames() {
+        var list = dogService.retrieveDogNames();
+        return new ResponseEntity<List<String>>(list, HttpStatus.OK);
+    }
 }
