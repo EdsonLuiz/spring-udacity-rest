@@ -6,4 +6,6 @@ import com.edson.dogrest.entity.Dog;
 
 public interface DogService {
     List<Dog> retrieveDogs();
+
+	List<String> retrieveDogBreed();
 }

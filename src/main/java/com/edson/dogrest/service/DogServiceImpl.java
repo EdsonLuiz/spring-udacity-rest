@@ -21,6 +21,11 @@ public class DogServiceImpl implements DogService {
         return (List<Dog>) dogRepository.findAll();
     }
 
+    @Override
+    public List<String> retrieveDogBreed() {
+        return (List<String>) dogRepository.findAllBreed();
+    }
+
 
     
 }

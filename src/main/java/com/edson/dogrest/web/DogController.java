@@ -24,4 +24,10 @@ public class DogController {
         var list = dogService.retrieveDogs();
         return new ResponseEntity<List<Dog>>(list, HttpStatus.OK);
     }
+
+    @GetMapping("/dogs/breed")
+    public ResponseEntity<List<String>> getDogBreeds() {
+        var list = dogService.retrieveDogBreed();
+        return new ResponseEntity<List<String>>(list, HttpStatus.OK);
+    }
 }
