@@ -1,6 +1,7 @@
 package com.edson.dogrest.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.edson.dogrest.entity.Dog;
 import com.edson.dogrest.repository.DogRepository;
@@ -28,7 +29,9 @@ public class DogServiceImpl implements DogService {
 
     @Override
     public String retrieveDogBreedById(Long id) {
-        return dogRepository.findBreedById(id);
+        var optionalBreed = Optional.ofNullable(dogRepository.findBreedById(id));
+        var breed = optionalBreed.orElseThrow(DogNotFoundException::new);
+        return breed;
     }
 
     @Override
